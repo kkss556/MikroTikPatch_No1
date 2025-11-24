@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       arch:
-        description: 'Architecture (x86, arm64, arm, mmips, smips, ppc)'
+        description: 'Architecture (x86, arm64, arm)'
         required: true
         default: 'x86'
         type: choice
@@ -15,10 +15,6 @@ on:
           - x86
           - arm64
           - arm
-          - mipsbe
-          - mmips
-          - smips
-          - ppc
       channel:
         description: 'Channel (stable, testing)'
         required: true
