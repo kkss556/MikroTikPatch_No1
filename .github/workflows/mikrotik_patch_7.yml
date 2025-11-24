@@ -661,6 +661,7 @@ jobs:
     - name: Patch netinstall ${{ env.LATEST_VERSION }}${{ env.ARCH }}
       if: steps.get_latest.outputs.has_new_version == 'true' && matrix.arch == 'x86' && env.RELEASE == 'true'
       run: |
+        pip3 install pefile
         sudo unzip netinstall.zip
         sudo -E python3 patch.py netinstall netinstall.exe
         sudo zip netinstall-$LATEST_VERSION.zip ./netinstall.exe
