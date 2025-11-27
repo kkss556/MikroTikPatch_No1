@@ -711,6 +711,7 @@ jobs:
       if: steps.get_latest.outputs.has_new_version == 'true' && matrix.arch == 'x86' && env.RELEASE == 'true'
       run: |
         sudo unzip netinstall.zip
+        pip3 install pefile
         sudo -E python3 patch.py netinstall netinstall.exe
         sudo zip netinstall-$LATEST_VERSION.zip ./netinstall.exe
         # sudo tar -xvf netinstall.tar.gz
